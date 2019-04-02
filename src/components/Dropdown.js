@@ -1,23 +1,26 @@
 import React, { Component } from "react";
 import { Dropdown } from "semantic-ui-react";
 import { connect } from "react-redux";
-import { selectEvent, SaiEditField } from "../actions/";
+import { SaiEditField } from "../actions/";
 
 class DropdownExport extends Component {
+  handleOnChange(e, invoker) {
+    /* field name , value */
+    invoker.parentprops.SaiEditField(invoker.field_name, invoker.value);
+  }
+
   render() {
     return (
       <div>
-        <button onClick={() => this.props.selectEvent(3)}>Hello World</button>
-
-        <button onClick={() => this.props.SaiEditField(3, 4)}>
-          Hello World2
-        </button>
         <Dropdown
-          placeholder="Select Event"
           fluid
           search
           selection
+          field_name={this.props.field_name}
           options={this.props.options}
+          value={this.props.state.currentSai[this.props.field_name]}
+          onChange={this.handleOnChange}
+          parentprops={this.props}
         />
       </div>
     );
@@ -25,7 +28,7 @@ class DropdownExport extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("Redux Render:", state);
+  // console.log("Redux Render:", state);
   return {
     state
   };
@@ -33,5 +36,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { selectEvent, SaiEditField }
+  { SaiEditField }
 )(DropdownExport);

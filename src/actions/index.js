@@ -1,12 +1,4 @@
-// Action Creator
-export const selectEvent = event => {
-  // Return an action
-  return {
-    type: "EVENT_SELECTED",
-    payload: event
-  };
-};
-
+// Edit Current Sai Field & Value
 export const SaiEditField = (field, value) => {
   // Return an action
   return {
