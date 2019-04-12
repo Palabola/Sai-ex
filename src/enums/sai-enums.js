@@ -1,5 +1,37 @@
 export class SaiEnums {
   constructor() {
+    this.base_sai_script = {
+      entryorguid: 0,
+      source_type: 0,
+      id: 0,
+      link: 0,
+      event_type: 0,
+      event_phase_mask: 0,
+      event_chance: 100,
+      event_flags: 0,
+      event_param1: 0,
+      event_param2: 0,
+      event_param3: 0,
+      event_param4: 0,
+      event_param_string: "",
+      action_type: 0,
+      action_param1: 0,
+      action_param2: 0,
+      action_param3: 0,
+      action_param4: 0,
+      action_param5: 0,
+      action_param6: 0,
+      target_type: 0,
+      target_param1: 0,
+      target_param2: 0,
+      target_param3: 0,
+      target_x: 0,
+      target_y: 0,
+      target_z: 0,
+      target_o: 0,
+      comment: null
+    };
+
     this.SMART_EVENT_PHASE = {
       SMART_EVENT_PHASE_ALWAYS: 0,
       SMART_EVENT_PHASE_1: 1,
@@ -269,13 +301,23 @@ export class SaiEnums {
     this.saiLabels.event_type = [];
     this.saiLabels.target_type = [];
 
-    this.saiLabels.action_type.name = [];
-    this.saiLabels.event_type.name = [];
-    this.saiLabels.target_type.name = [];
+    this.saiLabels.event_type.tooltip = [];
+
+    this.saiLabels.event_type.param1 = [];
+    this.saiLabels.event_type.param2 = [];
+    this.saiLabels.event_type.param3 = [];
+    this.saiLabels.event_type.param4 = [];
+    this.saiLabels.event_type.param5 = []; // unused
+    this.saiLabels.event_type.param6 = []; // unused
+
+    this.saiLabels.event_type.paramTooltip1 = [];
+    this.saiLabels.event_type.paramTooltip2 = [];
+    this.saiLabels.event_type.paramTooltip3 = [];
+    this.saiLabels.event_type.paramTooltip4 = [];
+    this.saiLabels.event_type.paramTooltip5 = []; // unused
+    this.saiLabels.event_type.paramTooltip6 = []; // unused
 
     this.saiLabels.action_type.tooltip = [];
-    this.saiLabels.event_type.tooltip = [];
-    this.saiLabels.target_type.tooltip = [];
 
     this.saiLabels.action_type.param1 = [];
     this.saiLabels.action_type.param2 = [];
@@ -284,14 +326,12 @@ export class SaiEnums {
     this.saiLabels.action_type.param5 = [];
     this.saiLabels.action_type.param6 = [];
 
-    this.saiLabels.event_type.param1 = [];
-    this.saiLabels.event_type.param2 = [];
-    this.saiLabels.event_type.param3 = [];
-    this.saiLabels.event_type.param4 = [];
-
-    this.saiLabels.target_type.param1 = [];
-    this.saiLabels.target_type.param2 = [];
-    this.saiLabels.target_type.param3 = [];
+    this.saiLabels.action_type.flagger1 = [];
+    this.saiLabels.action_type.flagger2 = [];
+    this.saiLabels.action_type.flagger3 = [];
+    this.saiLabels.action_type.flagger4 = [];
+    this.saiLabels.action_type.flagger5 = [];
+    this.saiLabels.action_type.flagger6 = [];
 
     this.saiLabels.action_type.paramTooltip1 = [];
     this.saiLabels.action_type.paramTooltip2 = [];
@@ -300,276 +340,23 @@ export class SaiEnums {
     this.saiLabels.action_type.paramTooltip5 = [];
     this.saiLabels.action_type.paramTooltip6 = [];
 
-    this.saiLabels.action_type.flagger1 = [];
-    this.saiLabels.action_type.flagger2 = [];
-    this.saiLabels.action_type.flagger3 = [];
-    this.saiLabels.action_type.flagger4 = [];
-    this.saiLabels.action_type.flagger5 = [];
-    this.saiLabels.action_type.flagger6 = [];
+    this.saiLabels.target_type.tooltip = [];
 
-    this.saiLabels.event_type.paramTooltip1 = [];
-    this.saiLabels.event_type.paramTooltip2 = [];
-    this.saiLabels.event_type.paramTooltip3 = [];
-    this.saiLabels.event_type.paramTooltip4 = [];
+    this.saiLabels.target_type.param1 = [];
+    this.saiLabels.target_type.param2 = [];
+    this.saiLabels.target_type.param3 = [];
+    this.saiLabels.target_type.param4 = []; // unused
+    this.saiLabels.target_type.param5 = []; // unused
+    this.saiLabels.target_type.param6 = []; // unused
 
     this.saiLabels.target_type.paramTooltip1 = [];
     this.saiLabels.target_type.paramTooltip2 = [];
     this.saiLabels.target_type.paramTooltip3 = [];
+    this.saiLabels.target_type.paramTooltip4 = []; // unused
+    this.saiLabels.target_type.paramTooltip5 = []; // unused
+    this.saiLabels.target_type.paramTooltip6 = []; // unused
 
-    this.saiLabels.comment = [];
-    this.saiLabels.comment.action = [];
-    this.saiLabels.comment.event = [];
-    this.saiLabels.comment.target = [];
-
-    /* ACTION NAMES */
-    this.saiLabels.action_type.name[0] = "NONE";
-    this.saiLabels.action_type.name[1] = "TALK";
-    this.saiLabels.action_type.name[2] = "SET_FACTION";
-    this.saiLabels.action_type.name[3] = "MORPH_TO_ENTRY_OR_MODEL";
-    this.saiLabels.action_type.name[4] = "SOUND";
-    this.saiLabels.action_type.name[5] = "PLAY_EMOTE";
-    this.saiLabels.action_type.name[6] = "FAIL_QUEST";
-    this.saiLabels.action_type.name[7] = "ADD_QUEST";
-    this.saiLabels.action_type.name[8] = "SET_REACT_STATE";
-    this.saiLabels.action_type.name[9] = "ACTIVATE_GOBJECT";
-    this.saiLabels.action_type.name[10] = "RANDOM_EMOTE";
-    this.saiLabels.action_type.name[11] = "CAST";
-    this.saiLabels.action_type.name[12] = "SUMMON_CREATURE";
-    this.saiLabels.action_type.name[13] = "THREAT_SINGLE_%";
-    this.saiLabels.action_type.name[14] = "THREAT_ALL_%";
-    this.saiLabels.action_type.name[15] = "CALL AREA EXPLORED OR EVENT HAPPENS";
-    this.saiLabels.action_type.name[16] = "UNUSED_16";
-    this.saiLabels.action_type.name[17] = "SET EMOTE STATE";
-    this.saiLabels.action_type.name[18] = "SET UNIT FLAG";
-    this.saiLabels.action_type.name[19] = "REMOVE UNIT FLAG";
-    this.saiLabels.action_type.name[20] = "AUTO_ATTACK";
-    this.saiLabels.action_type.name[21] = "ALLOW_COMBAT_MOVEMENT";
-    this.saiLabels.action_type.name[22] = "SET_EVENT_PHASE";
-    this.saiLabels.action_type.name[23] = "INC_EVENT_PHASE";
-    this.saiLabels.action_type.name[24] = "EVADE";
-    this.saiLabels.action_type.name[25] = "FLEE_FOR_ASSIST";
-    this.saiLabels.action_type.name[26] = "CALL_GROUP EVENT HAPPENS";
-    this.saiLabels.action_type.name[27] = "CALL_CASTED CREATURE OR GO";
-    this.saiLabels.action_type.name[28] = "REMOVEAURASFROMSPELL";
-    this.saiLabels.action_type.name[29] = "FOLLOW";
-    this.saiLabels.action_type.name[30] = "RANDOM_PHASE";
-    this.saiLabels.action_type.name[31] = "RANDOM_PHASE_RANGE";
-    this.saiLabels.action_type.name[32] = "RESET_GOBJECT";
-    this.saiLabels.action_type.name[33] = "CALL_KILLEDMONSTER";
-    this.saiLabels.action_type.name[34] = "SET_INST_DATA";
-    this.saiLabels.action_type.name[35] = "SET_INST_DATA64";
-    this.saiLabels.action_type.name[36] = "UPDATE_TEMPLATE";
-    this.saiLabels.action_type.name[37] = "DIE";
-    this.saiLabels.action_type.name[38] = "SET_IN_COMBAT_WITH_ZONE";
-    this.saiLabels.action_type.name[39] = "CALL_FOR_HELP";
-    this.saiLabels.action_type.name[40] = "SET_SHEATH";
-    this.saiLabels.action_type.name[41] = "FORCE_DESPAWN";
-    this.saiLabels.action_type.name[42] = "SET_INVINCIBILITY_HP_LEVEL";
-    this.saiLabels.action_type.name[43] = "MOUNT_TO_ENTRY_OR_MODEL";
-    this.saiLabels.action_type.name[44] = "SET_INGAME_PHASE_MASK";
-    this.saiLabels.action_type.name[45] = "SET_DATA";
-    this.saiLabels.action_type.name[46] = "Unused";
-    this.saiLabels.action_type.name[47] = "SET_VISIBILITY";
-    this.saiLabels.action_type.name[48] = "SET_ACTIVE";
-    this.saiLabels.action_type.name[49] = "ATTACK_START";
-    this.saiLabels.action_type.name[50] = "SUMMON_GO";
-    this.saiLabels.action_type.name[51] = "KILL_UNIT";
-    this.saiLabels.action_type.name[52] = "ACTIVATE_TAXI";
-    this.saiLabels.action_type.name[53] = "WP_START";
-    this.saiLabels.action_type.name[54] = "WP_PAUSE";
-    this.saiLabels.action_type.name[55] = "WP_STOP";
-    this.saiLabels.action_type.name[56] = "ADD_ITEM";
-    this.saiLabels.action_type.name[57] = "REMOVE_ITEM";
-    this.saiLabels.action_type.name[58] = "INSTALL_AI_TEMPLATE";
-    this.saiLabels.action_type.name[59] = "SET_RUN";
-    this.saiLabels.action_type.name[60] = "SMART_ACTION_SET_DISABLE_GRAVITY";
-    this.saiLabels.action_type.name[61] = "SET_SWIM";
-    this.saiLabels.action_type.name[62] = "TELEPORT";
-    this.saiLabels.action_type.name[63] = "STORE VARIABLE DECIMAL";
-    this.saiLabels.action_type.name[64] = "STORE_TARGET_LIST";
-    this.saiLabels.action_type.name[65] = "WP_RESUME";
-    this.saiLabels.action_type.name[66] = "SET_ORIENTATION";
-    this.saiLabels.action_type.name[67] = "CREATE_TIMED_EVENT";
-    this.saiLabels.action_type.name[68] = "PLAYMOVIE";
-    this.saiLabels.action_type.name[69] = "MOVE_TO_POS";
-    this.saiLabels.action_type.name[70] = "RESPAWN_TARGET";
-    this.saiLabels.action_type.name[71] = "EQUIP";
-    this.saiLabels.action_type.name[72] = "CLOSE_GOSSIP";
-    this.saiLabels.action_type.name[73] = "TRIGGER_TIMED_EVENT";
-    this.saiLabels.action_type.name[74] = "REMOVE_TIMED_EVENT";
-    this.saiLabels.action_type.name[75] = "ADD_AURA";
-    this.saiLabels.action_type.name[76] = "OVERRIDE_SCRIPT_BASE_OBJECT";
-    this.saiLabels.action_type.name[77] = "RESET_SCRIPT_BASE_OBJECT";
-    this.saiLabels.action_type.name[78] = "CALL_SCRIPT_RESET";
-    this.saiLabels.action_type.name[79] = "SET_RANGED_MOVEMENT";
-    this.saiLabels.action_type.name[80] = "CALL_TIMED_ACTIONLIST";
-    this.saiLabels.action_type.name[81] = "SET_NPC_FLAG";
-    this.saiLabels.action_type.name[82] = "ADD_NPC_FLAG";
-    this.saiLabels.action_type.name[83] = "REMOVE_NPC_FLAG";
-    this.saiLabels.action_type.name[84] = "SIMPLE_TALK";
-    this.saiLabels.action_type.name[85] = "INVOKER_CAST";
-    this.saiLabels.action_type.name[86] = "CROSS_CAST";
-    this.saiLabels.action_type.name[87] = "CALL_RANDOM_TIMED_ACTIONLIST";
-    this.saiLabels.action_type.name[88] = "CALL_RANDOM_RANGE_TIMED_ACTIONLIST";
-    this.saiLabels.action_type.name[89] = "RANDOM_MOVE";
-    this.saiLabels.action_type.name[90] = "SET_UNIT_FIELD_BYTES_1";
-    this.saiLabels.action_type.name[91] = "REMOVE_UNIT_FIELD_BYTES_1";
-    this.saiLabels.action_type.name[92] = "INTERRUPT_SPELL";
-    this.saiLabels.action_type.name[93] = "SEND_GO_CUSTOM_ANIM";
-    this.saiLabels.action_type.name[94] = "SET_DYNAMIC_FLAG";
-    this.saiLabels.action_type.name[95] = "ADD_DYNAMIC_FLAG";
-    this.saiLabels.action_type.name[96] = "REMOVE_DYNAMIC_FLAG";
-    this.saiLabels.action_type.name[97] = "JUMP_TO_POS";
-    this.saiLabels.action_type.name[98] = "SEND_GOSSIP_MENU";
-    this.saiLabels.action_type.name[99] = "GO_SET_LOOT_STATE";
-    this.saiLabels.action_type.name[100] = "SEND_TARGET_TO_TARGET";
-    this.saiLabels.action_type.name[101] = "SET_HOME_POS";
-    this.saiLabels.action_type.name[102] = "SET_HEALTH_REGEN";
-    this.saiLabels.action_type.name[103] = "SET_ROOT";
-    this.saiLabels.action_type.name[104] = "SET_GO_FLAG";
-    this.saiLabels.action_type.name[105] = "ADD_GO_FLAG";
-    this.saiLabels.action_type.name[106] = "REMOVE_GO_FLAG";
-    this.saiLabels.action_type.name[107] = "SUMMON_CREATURE_GROUP";
-    this.saiLabels.action_type.name[108] = "SET_POWER";
-    this.saiLabels.action_type.name[109] = "ADD_POWER";
-    this.saiLabels.action_type.name[110] = "REMOVE_POWER";
-    this.saiLabels.action_type.name[111] = "SMART_ACTION_GAME_EVENT_STOP";
-    this.saiLabels.action_type.name[112] = "SMART_ACTION_GAME_EVENT_START";
-    this.saiLabels.action_type.name[113] = "Notused";
-    this.saiLabels.action_type.name[114] = "MOVE_OFFSET";
-    this.saiLabels.action_type.name[115] = "SMART_ACTION_RANDOM_SOUND";
-    this.saiLabels.action_type.name[116] = "SMART_ACTION_SET_CORPSE_DELAY";
-    this.saiLabels.action_type.name[117] = "SMART_ACTION_DISABLE_EVADE";
-    this.saiLabels.action_type.name[118] = "SMART_ACTION_GO_SET_GO_STATE";
-    this.saiLabels.action_type.name[119] = "SMART_ACTION_ADD_QUEST_OBJECTIVE";
-    this.saiLabels.action_type.name[120] = "Unused";
-    this.saiLabels.action_type.name[121] = "Unused";
-    this.saiLabels.action_type.name[122] = "Unused";
-    this.saiLabels.action_type.name[123] = "Unused";
-    this.saiLabels.action_type.name[124] = "Unused";
-    this.saiLabels.action_type.name[125] = "Unused";
-    this.saiLabels.action_type.name[126] = "Unused";
-    this.saiLabels.action_type.name[127] = "Unused";
-    this.saiLabels.action_type.name[128] = "SMART_ACTION_PLAY_ANIMKIT";
-    this.saiLabels.action_type.name[129] = "SMART_ACTION_SCENE_PLAY";
-    this.saiLabels.action_type.name[130] = "SMART_ACTION_SCENE_CANCEL";
-    this.saiLabels.action_type.name[131] = "SMART_ACTION_START_CONVERSATION";
-
-    /* EVENT NAMES */
-    this.saiLabels.event_type.name[0] = "UPDATE_IC(Or TimedEvent)";
-    this.saiLabels.event_type.name[1] = "UPDATE_OUT_OF_COMBAT";
-    this.saiLabels.event_type.name[2] = "HEALT_%";
-    this.saiLabels.event_type.name[3] = "MANA_%";
-    this.saiLabels.event_type.name[4] = "AGGRO";
-    this.saiLabels.event_type.name[5] = "KILL";
-    this.saiLabels.event_type.name[6] = "DEATH";
-    this.saiLabels.event_type.name[7] = "EVADE";
-    this.saiLabels.event_type.name[8] = "SPELLHIT";
-    this.saiLabels.event_type.name[9] = "RANGE";
-    this.saiLabels.event_type.name[10] = "OOC_LOS";
-    this.saiLabels.event_type.name[11] = "RESPAWN";
-    this.saiLabels.event_type.name[12] = "TARGET_HEALTH_%";
-    this.saiLabels.event_type.name[13] = "TARGET_CASTING(Victim)";
-    this.saiLabels.event_type.name[14] = "FRIENDLY_HEALTH";
-    this.saiLabels.event_type.name[15] = "FRIENDLY_IS_CC";
-    this.saiLabels.event_type.name[16] = "FRIENDLY_MISSING_BUFF";
-    this.saiLabels.event_type.name[17] = "SUMMONED_UNIT";
-    this.saiLabels.event_type.name[18] = "TARGET_MANA_%";
-    this.saiLabels.event_type.name[19] = "ACCEPTED_QUEST";
-    this.saiLabels.event_type.name[20] = "REWARD_QUEST";
-    this.saiLabels.event_type.name[21] = "REACHED_HOME";
-    this.saiLabels.event_type.name[22] = "RECEIVE_EMOTE";
-    this.saiLabels.event_type.name[23] = "HAS_AURA";
-    this.saiLabels.event_type.name[24] = "TARGET_BUFFED";
-    this.saiLabels.event_type.name[25] = "RESET";
-    this.saiLabels.event_type.name[26] = "IC_LOS";
-    this.saiLabels.event_type.name[27] = "PASSENGER_BOARDED";
-    this.saiLabels.event_type.name[28] = "PASSENGER_REMOVED";
-    this.saiLabels.event_type.name[29] = "CHARMED";
-    this.saiLabels.event_type.name[30] = "CHARMED_TARGET";
-    this.saiLabels.event_type.name[31] = "SPELLHIT_TARGET";
-    this.saiLabels.event_type.name[32] = "DAMAGED";
-    this.saiLabels.event_type.name[33] = "DAMAGED_TARGET";
-    this.saiLabels.event_type.name[34] = "MOVEMENT INFORM";
-    this.saiLabels.event_type.name[35] = "SUMMON_DESPAWNED";
-    this.saiLabels.event_type.name[36] = "CORPSE_REMOVED";
-    this.saiLabels.event_type.name[37] = "AI_INIT";
-    this.saiLabels.event_type.name[38] = "DATA_SET";
-    this.saiLabels.event_type.name[39] = "WAYPOINT_START";
-    this.saiLabels.event_type.name[40] = "WAYPOINT_REACHED";
-    this.saiLabels.event_type.name[41] = "TRANSPORT_ADDPLAYER";
-    this.saiLabels.event_type.name[42] = "TRANSPORT_ADDCREATURE";
-    this.saiLabels.event_type.name[43] = "TRANSPORT_REMOVE_PLAYER";
-    this.saiLabels.event_type.name[44] = "TRANSPORT_RELOCATE";
-    this.saiLabels.event_type.name[45] = "INSTANCE_PLAYER_ENTER";
-    this.saiLabels.event_type.name[46] = "AREATRIGGER_ONTRIGGER";
-    this.saiLabels.event_type.name[47] = "QUEST_ACCEPTED";
-    this.saiLabels.event_type.name[48] = "QUEST_OBJ_COPLETETION";
-    this.saiLabels.event_type.name[49] = "QUEST_COMPLETION";
-    this.saiLabels.event_type.name[50] = "QUEST_REWARDED";
-    this.saiLabels.event_type.name[51] = "QUEST_FAIL";
-    this.saiLabels.event_type.name[52] = "TEXT_OVER";
-    this.saiLabels.event_type.name[53] = "RECEIVE_HEAL";
-    this.saiLabels.event_type.name[54] = "JUST_SUMMONED";
-    this.saiLabels.event_type.name[55] = "WAYPOINT_PAUSED";
-    this.saiLabels.event_type.name[56] = "WAYPOINT_RESUMED";
-    this.saiLabels.event_type.name[57] = "WAYPOINT_STOPPED";
-    this.saiLabels.event_type.name[58] = "WAYPOINT_ENDED";
-    this.saiLabels.event_type.name[59] = "TIMED_EVENT_TRIGGERED";
-    this.saiLabels.event_type.name[60] = "UPDATE";
-    this.saiLabels.event_type.name[61] = "LINK";
-    this.saiLabels.event_type.name[62] = "GOSSIP_SELECT";
-    this.saiLabels.event_type.name[63] = "JUST_CREATED";
-    this.saiLabels.event_type.name[64] = "GOSSIP_HELLO";
-    this.saiLabels.event_type.name[65] = "FOLLOW_COMPLETED";
-    this.saiLabels.event_type.name[66] = "DUMMY_EFFECT";
-    this.saiLabels.event_type.name[67] = "IS_BEHIND_TARGET";
-    this.saiLabels.event_type.name[68] = "GAME_EVENT_START";
-    this.saiLabels.event_type.name[69] = "GAME_EVENT_END";
-    this.saiLabels.event_type.name[70] = "GO_STATE_CHANGED";
-    this.saiLabels.event_type.name[71] = "GO_EVENT_INFORM";
-    this.saiLabels.event_type.name[72] = "ACTION_DONE";
-    this.saiLabels.event_type.name[73] = "ON_SPELLCLICK";
-    this.saiLabels.event_type.name[74] = "FRIENDLY_HEALTH_PCT";
-    this.saiLabels.event_type.name[75] = "DISTANCE_CREATURE";
-    this.saiLabels.event_type.name[76] = "DISTANCE_GAMEOBJECT";
-    this.saiLabels.event_type.name[77] = "COUNTER_SET";
-    this.saiLabels.event_type.name[78] = "SMART_EVENT_SCENE_START";
-    this.saiLabels.event_type.name[79] = "SMART_EVENT_SCENE_TRIGGER";
-    this.saiLabels.event_type.name[80] = "SMART_EVENT_SCENE_CANCEL";
-    this.saiLabels.event_type.name[81] = "SMART_EVENT_SCENE_COMPLETE";
-
-    /* TARGET NAMES */
-    this.saiLabels.target_type.name[0] = "NONE";
-    this.saiLabels.target_type.name[1] = "SELF";
-    this.saiLabels.target_type.name[2] = "VICTIM";
-    this.saiLabels.target_type.name[3] = "HOSTILE_SECOND_AGGRO";
-    this.saiLabels.target_type.name[4] = "HOSTILE_LAST_AGGRO";
-    this.saiLabels.target_type.name[5] = "HOSTILE_RANDOM";
-    this.saiLabels.target_type.name[6] = "HOSTILE_RANDOM_NOT_TOP";
-    this.saiLabels.target_type.name[7] = "ACTION_INVOKER";
-    this.saiLabels.target_type.name[8] = "POSITION";
-    this.saiLabels.target_type.name[9] = "CREATURE_RANGE";
-    this.saiLabels.target_type.name[10] = "CREATURE_GUID";
-    this.saiLabels.target_type.name[11] = "CREATURE_DISTANCE";
-    this.saiLabels.target_type.name[12] = "STORED";
-    this.saiLabels.target_type.name[13] = "GAMEOBJECT_RANGE";
-    this.saiLabels.target_type.name[14] = "GAMEOBJECT_GUID";
-    this.saiLabels.target_type.name[15] = "GAMEOBJECT_DISTANCE";
-    this.saiLabels.target_type.name[16] = "INVOKER_PARTY";
-    this.saiLabels.target_type.name[17] = "PLAYER_RANGE";
-    this.saiLabels.target_type.name[18] = "PLAYER_DISTANCE";
-    this.saiLabels.target_type.name[19] = "CLOSEST_CREATURE";
-    this.saiLabels.target_type.name[20] = "CLOSEST_GAMEOBJECT";
-    this.saiLabels.target_type.name[21] = "CLOSEST_PLAYER";
-    this.saiLabels.target_type.name[22] = "ACTION_INVOKER_VEHICLE";
-    this.saiLabels.target_type.name[23] = "OWNER_OR_SUMMONER";
-    this.saiLabels.target_type.name[24] = "THREAT_LIST";
-    this.saiLabels.target_type.name[25] = "CLOSEST_ENEMY";
-    this.saiLabels.target_type.name[26] = "CLOSEST_FRIENDLY";
-    this.saiLabels.target_type.name[27] = "LOOT_RECIPIENTS";
-    this.saiLabels.target_type.name[28] = "SMART_TARGET_FARTHEST";
-    this.saiLabels.target_type.name[29] = "SMART_TARGET_VEHICLE_ACCESSORY";
+    // Create standardized values for missing enums TODO: solve this shit!
 
     /* ACTION TOOLTIPS */
     this.saiLabels.action_type.tooltip[0] =
@@ -1608,6 +1395,9 @@ export class SaiEnums {
       "If set to 0 it will only target alive creatures; if set to 1 it will target only alive creatures";
   }
 
+  /* Enum Helper methods */
+
+  // Return an object what can be used for react-sematic dropdown
   EnumtoDropdown(EnumObject) {
     return Object.entries(EnumObject).map(([key, value]) => {
       return { key: value, value: value, text: key };

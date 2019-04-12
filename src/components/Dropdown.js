@@ -4,10 +4,9 @@ import { connect } from "react-redux";
 import { SaiEditField } from "../actions/";
 
 class DropdownExport extends Component {
-  handleOnChange(e, invoker) {
-    /* field name , value */
-    invoker.parentprops.SaiEditField(invoker.field_name, invoker.value);
-  }
+  handleOnChange = (e, invoker) => {
+    this.props.SaiEditField(invoker.field_name, invoker.value);
+  };
 
   render() {
     return (
@@ -20,7 +19,6 @@ class DropdownExport extends Component {
           options={this.props.options}
           value={this.props.state.currentSai[this.props.field_name]}
           onChange={this.handleOnChange}
-          parentprops={this.props}
         />
       </div>
     );
